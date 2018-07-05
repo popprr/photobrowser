@@ -5,7 +5,7 @@ const Thumbnail = ({
     title,
     url
 }) => (
-    <a className="gallery__thumbnail" href={ `/photo/${id}` }>
+    <a className="gallery__thumbnail" href={ `/gallery/${id}` }>
         <img src={ url } alt={title}/>
     </a>
 );

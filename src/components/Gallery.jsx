@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import Thumbnail from './Thumbnail';
+import { Route } from 'react-router-dom';
+import PhotoGrid from './PhotoGrid';
+
+const PhotoDetailsModal = ({ photo }) => (
+    <div>
+        Photo details
+    </div>
+);
 
 class Gallery extends Component {
     componentDidMount() {
@@ -11,16 +18,9 @@ class Gallery extends Component {
 
         return (
             <div className="gallery">
-                {
-                photos.map(p => (
-                    <Thumbnail
-                        key={ p.id }
-                        id={ p.id }
-                        title={ p.title }
-                        url={ p.thumbnailUrl } />
-                ))
-                }
-            </div>        
+                <PhotoGrid photos={ photos } />
+                <Route path={`${this.props.match.url}/:id`} component={ PhotoDetailsModal } />
+            </div>
         );
     }
 }
