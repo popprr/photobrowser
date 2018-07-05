@@ -1,15 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-const PhotoList = ({ photos }) => (
-    <div>
-        Photo gallery.
-        { JSON.stringify(photos) }
-    </div>
-);
+import Gallery from '../components/Gallery';
+import { getPhotos } from '../actions';
 
 const mapStateToProps = (state) => ({
     photos: state.photos
 });
 
-export default connect(mapStateToProps)(PhotoList);
+export default connect(mapStateToProps, { getPhotos })(Gallery);
