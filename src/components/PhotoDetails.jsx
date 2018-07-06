@@ -1,27 +1,34 @@
 import React from 'react';
 import NotFound from './NotFound';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const PhotoView = ({
     id,
     photo,
+    next,
+    previous,
     history
 }) => {
     if (!photo) return <NotFound message={ `A photo with id ${id} does not seem to exist.` }  />
 
     return (
         <div className="photo-view">
-        Photo { JSON.stringify(photo) }
-            {/* <div className="photo-view__photo">
-                <img src={ photo.url } alt={ photo.title } />
-            </div>
-            <div className="photo-view__sidebar">
-                <div className="photo-view__details">
-                    <h1>{ photo.title }</h1>
-                </div>
-            </div> */}
+            <h1>{ photo.title }</h1>
+            <img src={ photo.url } alt={ photo.title } />
+            {
+                next &&
+                <Link to={ `/photo/${next.id}` } >
+                    Next
+                </Link>
+            }
+            {
+                previous &&
+                <Link to={ `/photo/${previous.id}` } >
+                    Previous
+                </Link>
+            }
         </div>
     );
 };
 
-export default withRouter(PhotoView);
+export default PhotoView;

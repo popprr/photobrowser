@@ -39,12 +39,17 @@ const placeholderPhotos = [
     }
 ];
 
-export const getPhotos = () => ({
+export const receivePhotos = (photos) => ({
     type: GET_PHOTOS,
-    payload: {
-        photos: placeholderPhotos
-    }
+    payload: { photos }
 });
+
+export const getPhotos = (limit=100) => dispatch => {
+    const endpoint = "http://jsonplaceholder.typicode.com/photos";
+    return fetch(`${endpoint}?_limit=${limit}`)
+        .then(res => res.json())
+        .then(json => dispatch(receivePhotos(json)));
+}
 
 export const getPhoto = (id) => {
     const photo = placeholderPhotos.filter(p => p.id === id);
