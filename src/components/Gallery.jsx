@@ -1,16 +1,35 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PhotoGrid from './PhotoGrid';
+import { fetchPhotosIfNotAlreadyFetched } from '../actions';
+import ReactModal from 'react-modal';
 
-const PhotoDetailsModal = ({ photo }) => (
-    <div>
-        Photo details
-    </div>
-);
+ReactModal.setAppElement('#app');
+
+const modalStyles = {
+    content: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    }
+}
 
 class Gallery extends Component {
+    constructor(props) {
+        super(props);
+        
+        // const modalPhotoId = props.match.params.photoId;
+        // this.state = {
+        //     modalOpen: modalPhotoId == true
+        // }
+
+        // console.log("props", props);
+        // console.log("state", this.state);
+    }
+
     componentDidMount() {
-        this.props.getPhotos();
+        this.props.dispatch(fetchPhotosIfNotAlreadyFetched());
     }
 
     render() {
@@ -19,10 +38,14 @@ class Gallery extends Component {
         return (
             <div className="gallery">
                 <PhotoGrid photos={ photos } />
-                <Route path={`${this.props.match.url}/:id`} component={ PhotoDetailsModal } />
+                {/* <ReactModal
+                    isOpen={ this.state.modalOpen }
+                >
+                    Moikka!
+                </ReactModal> */}
             </div>
         );
     }
 }
 
-export default Gallery;
+export default withRouter(Gallery);

@@ -19,6 +19,6 @@ const AppWithStoreAndRouter = () => {
 
 ReactDOM.render(
     <AppWithStoreAndRouter/>,
-    document.getElementById('root')
+    document.getElementById('app')
 );
 registerServiceWorker();

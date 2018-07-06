@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Thumbnail = ({
     id,
     title,
     url
 }) => (
-    <a className="gallery__thumbnail" href={ `/gallery/${id}` }>
+    <Link to={`/photo/${id}`}>
         <img src={ url } alt={title}/>
-    </a>
+    </Link>
 );
 
 export default Thumbnail;
