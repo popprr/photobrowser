@@ -46,7 +46,7 @@ const getPrevious = (photos, current) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    let id = Number.parseInt(ownProps.match.params.id);
+    let id = Number.parseInt(ownProps.match.params.id, 10);
     let photo = findPhoto(state.photos.items || [], id);
     let next = getNext(state.photos.items || [], photo); 
     let previous = getPrevious(state.photos.items || [], photo);
