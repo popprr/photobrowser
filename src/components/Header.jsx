@@ -8,7 +8,7 @@ const Header = () => (
             <Link to='/' id="home">PhotoBrowser</Link>
         </h1>
         <div id="info">
-            &#x1f468;&zwj;&#x1f4bb; by Topi Latva-Salo with <img src={ Logo } alt="ReactJS"/> &amp; &#x1f49B;.
+            <span role="img" aria-label="Software developer">&#x1f468;&zwj;&#x1f4bb;</span>by Topi Latva-Salo with <img src={ Logo } alt="ReactJS"/> &amp; <span role="img" aria-label="Yellow heart">&#x1f49B;</span>.
         </div>
     </header>
 );
