@@ -3,20 +3,15 @@ import appState from './reducers';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
-// action logger middlware for use while developing
-// const actionLogger = store => next => action => {
-//     console.log("Action type:", action.type);
-//     console.log("Action payload:", action.payload);
-//     console.log("State before:", store.getState());
-//     next(action);
-//     console.log("State after:", store.getState());
-// };
-
-// store middleware components in a list for convenience
+// store middleware components in an array for convenience
 const middleware = [
-    thunk,
-    createLogger()
+    thunk
 ];
+
+// add logger mw if not running on production env
+if (process.env.NODE_ENV !== 'production') {
+    middleware.push(createLogger());
+}
 
 const createStoreWithMiddleWare = applyMiddleware(...middleware)(createStore);
 const store = createStoreWithMiddleWare(appState);
