@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NotFound from './NotFound';
 import { Link } from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
 
 class PhotoView extends Component {
 
@@ -45,20 +46,38 @@ class PhotoView extends Component {
 
         return (
             <div className="photo-view">
-                <h1>{ photo.title }</h1>
-                <img src={ photo.url } alt={ photo.title } />
-                {
-                    previous &&
-                    <Link to={ `/photo/${previous.id}` } id="prev">
-                        Previous
-                    </Link>
-                }
-                {
-                    next &&
-                    <Link to={ `/photo/${next.id}` } id="next">
-                        Next
-                    </Link>
-                }
+                <Link to="/gallery" id="home" className="photo-view__header">
+                    Back to home page
+                </Link>
+                <div className="photo-view__photo">
+                    <img src={ photo.url } alt={ photo.title } />
+                    {
+                        previous &&
+                        <Link to={ `/photo/${previous.id}` } id="prev" className="photo-view__nav">
+                            <FontAwesome
+                                name='angle-left'
+                                size='4x'
+                                style={{ color: 'black' }}
+                            />
+                            {/* Previous */}
+                        </Link>
+                    }
+                    {
+                        next &&
+                        <Link to={ `/photo/${next.id}` } id="next" className="photo-view__nav">
+                            <FontAwesome
+                                name='angle-right'
+                                size='4x'
+                            />
+                            {/* Next */}
+                        </Link>
+                    }
+                </div>
+                <div className="photo-view__details">
+                    <div>
+                        <h1>{ photo.title }</h1>
+                    </div>
+                </div>
             </div>
         );
     }
