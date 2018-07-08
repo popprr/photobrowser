@@ -6,11 +6,11 @@ export const receivePhotos = (photos) => ({
     payload: { photos }
 });
 
-export const getPhotos = (limit=100) => dispatch => {
+export const getPhotos = (limit=100) => async dispatch => {
     const endpoint = "https://jsonplaceholder.typicode.com/photos";
-    return fetch(`${endpoint}?_limit=${limit}`)
-        .then(res => res.json())
-        .then(json => dispatch(receivePhotos(json)));
+    const response = await fetch(`${endpoint}?_limit=${limit}`);
+    const json = await response.json();
+    dispatch(receivePhotos(json));
 }
 
 const shouldFetchPhotos = (state) => {
