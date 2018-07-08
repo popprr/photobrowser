@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import NotFound from './NotFound';
 import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
@@ -82,5 +83,18 @@ class PhotoView extends Component {
         );
     }
 }
+
+const photoShape = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+};
+
+PhotoView.propTypes = {
+    id: PropTypes.number.isRequired,
+    photo: PropTypes.shape(photoShape),
+    next: PropTypes.shape(photoShape),
+    previous: PropTypes.shape(photoShape)
+};
 
 export default PhotoView;

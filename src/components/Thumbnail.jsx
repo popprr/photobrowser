@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Thumbnail = ({
@@ -10,5 +11,11 @@ const Thumbnail = ({
         <img src={ url } alt={title}/>
     </Link>
 );
+
+Thumbnail.propTypes = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+};
 
 export default Thumbnail;

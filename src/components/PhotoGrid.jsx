@@ -1,5 +1,6 @@
 import React from 'react';
-import Thumbnail from './Thumbnail'; 
+import Thumbnail from './Thumbnail';
+import PropTypes from 'prop-types'; 
 
 const PhotoGrid = ({ photos }) => (
     <div className="photo-grid container">
@@ -20,5 +21,13 @@ const PhotoGrid = ({ photos }) => (
         </div>
     </div>
 );
+
+PhotoGrid.propTypes = {
+    photos: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        thumbnailUrl: PropTypes.string.isRequired
+    }))
+};
 
 export default PhotoGrid;
