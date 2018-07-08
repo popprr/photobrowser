@@ -1,8 +1,7 @@
-export const GET_PHOTOS = 'get-all-photos';
-export const GET_PHOTO = 'get-photo';
+export const RECEIVE_PHOTOS = 'receive-photos';
 
 export const receivePhotos = (photos) => ({
-    type: GET_PHOTOS,
+    type: RECEIVE_PHOTOS,
     payload: { photos }
 });
 
