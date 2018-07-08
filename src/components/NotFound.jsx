@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NotFound = ({ message }) => (
     <div className="not-found">
@@ -8,6 +9,7 @@ const NotFound = ({ message }) => (
         <div className="not-found__message">
             { message }
         </div>
+        <Link to="/">Go to home page</Link>
     </div>
 );
 

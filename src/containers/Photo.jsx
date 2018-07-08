@@ -10,10 +10,11 @@ class Photo extends Component {
     }
 
     render() {
-        const { photo, next, previous } = this.props;
+        const { id, photo, next, previous } = this.props;
         return (
             <div>
                 <PhotoDetails
+                    id={ id }
                     photo={ photo }
                     previous={ previous }
                     next={ next }/>
@@ -51,6 +52,7 @@ const mapStateToProps = (state, ownProps) => {
     let next = getNext(state.photos.items || [], photo); 
     let previous = getPrevious(state.photos.items || [], photo);
     return {
+        id,
         photo,
         next,
         previous
