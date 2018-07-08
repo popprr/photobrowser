@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PhotoGrid from '../components/PhotoGrid';
 import { fetchPhotosIfNotAlreadyFetched } from '../actions';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 class Gallery extends Component {
 
@@ -14,8 +16,12 @@ class Gallery extends Component {
         const { photos } = this.props;
 
         return (
-            <div className="gallery">
-                <PhotoGrid photos={ photos } />
+            <div>
+                <Header />
+                <div className="gallery">
+                    <PhotoGrid photos={ photos } />
+                </div>
+                <Footer />
             </div>
         );
     }

@@ -3,3 +3,48 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+header,
+footer {
+  background-color: white;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  padding: 78px 0;
+}
+
+footer {
+  padding: 32px 0;
+}
+
+header h1,
+header h1 * {
+  color: #333 !important;
+    text-decoration: none;
+}
+
+header #info img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+}
+
+.photo-grid__photo a,
+.photo-grid__photo img {
+  width: 100%;
+}
+
+.photo-grid__photo img {
+  height: auto;
+}
+
+@media only screen and ( max-width: 45em ) {
+  .col-3,
+  .col-4
+  .col-5,
+  .col-6 {
+    width: 46%;
+  }
+}
