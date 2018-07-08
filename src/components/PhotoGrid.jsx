@@ -6,9 +6,11 @@ const PhotoGrid = ({ photos }) => (
         <div className="row">
             {
                 photos.map(p => (
-                    <div className="col-3 photo-grid__photo">
-                        <Thumbnail
+                    <div 
                         key={ p.id }
+                        className="col-3 photo-grid__photo"
+                    >
+                        <Thumbnail
                         id={ p.id }
                         title={ p.title }
                         url={ p.thumbnailUrl } />

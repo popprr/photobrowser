@@ -21,7 +21,6 @@ const shouldFetchPhotos = (state) => {
 
 export const fetchPhotosIfNotAlreadyFetched = (dispatch, getState) => {
     if (shouldFetchPhotos(getState())) {
-        console.log("fetching phtoos");
         return dispatch(getPhotos());
     }
 }
