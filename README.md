@@ -25,3 +25,8 @@ This installs the deps and starts the dev server. The app is now accessible at `
 ## Live app
 
 The app is also accessible on [Heroku](https://simple-photobrowser.herokuapp.com/).
+
+
+## Features
+
+- When you are viewing a photo's details, you can move to previous/next photo with the arrow (left/right) keys, and exit the details view with the Escape key.
